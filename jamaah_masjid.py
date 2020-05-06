@@ -27,10 +27,8 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect( ("127.0.0.2", 9999) )
 
 while True :
-    # # Kirim data ke server
-    # data = input("Masukkan string yang akan dikirim : ")
-    # sock.send(data.encode('ascii'))
-    # # Terima kembalian dari server
+
+    # Terima kembalian dari server
     data = sock.recv(100)
     data = data.decode('ascii')
     data = json.loads(data)
@@ -40,10 +38,6 @@ while True :
         run_azan(key, data[key])
     
 
-
-# import datetime
-# import os
-# import time
 
 
 

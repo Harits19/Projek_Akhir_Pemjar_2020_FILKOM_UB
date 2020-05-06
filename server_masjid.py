@@ -47,18 +47,6 @@ def handleThread(conn):
         connection.append(conn)
         jadwal_dict = {}
 
-        # already_send = False
-
-        # for allconn in connection :
-        #     if jadwal_dict != {} and already_send == True :
-        #         send_all(allconn, jadwal_dict)
-                
-        #     else :
-        #         send_all(allconn, "Jadwal Belum Tersedia")
-                
-
-        # file = ""
-            # recv data setiap 4 byte
         while True :
             temp = conn.recv(4)
             temp = temp.decode('ascii')
@@ -103,16 +91,13 @@ def handleThread(conn):
             jadwal = body
             jadwal = jadwal.split("&")
             # key value
-            # shubuh 18.00
-            #setelah di split dengan &
+        
             # print(jadwal)
 
             for jam in jadwal :
                 # print(jadwal)
                 jadwal_terpisah = jam.split("=")
-                # output
-                # jadwal_terpisah[0] = shubuh
-                # jadwal_terpisah[1] = 12.00
+               
 
                 jadwal_dict[jadwal_terpisah[0]]=jadwal_terpisah[1]
                 
@@ -122,7 +107,6 @@ def handleThread(conn):
             for allconn in connection :
                 send_all(allconn, jadwal_dict)
                 
-            # already_send = True
             
             
 

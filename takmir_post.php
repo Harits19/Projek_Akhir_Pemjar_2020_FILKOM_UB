@@ -13,4 +13,3 @@
 	<input type="submit" value="  Bagikan ke Jama'ah  ">
 </form>
 
-~
